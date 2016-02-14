@@ -58,4 +58,4 @@ except KeyboardInterrupt:
     pass
 finally:
     GPIO.cleanup()
-    `killall omxplayer`
+    call(["killall","omxplayer"])
