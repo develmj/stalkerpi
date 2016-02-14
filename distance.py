@@ -5,7 +5,7 @@ import subprocess
 from subprocess import call
 
 # Start the video playback in the background
-subprocess.Popen(["omxplayer","-ohdmi /home/pi/mymedia.mp4 < /tmp/cmd"])
+subprocess.Popen(["omxplayer","-o hdmi /home/pi/mymedia.mp4 < /tmp/cmd"])
 
 TRIG = 20                                  #Associate pin 23 to TRIG
 ECHO = 26                                  #Associate pin 24 to ECHO
@@ -42,7 +42,7 @@ try:
         distance = pulse_duration * 17150        #Multiply pulse duration by 17150 to get distance
         distance = round(distance, 2)            #Round to two decimal points
 
-        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
+#        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
 
         if distance > 40 and distance < 100:
             if started == None:
