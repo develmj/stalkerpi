@@ -3,7 +3,7 @@ import time                                #Import time library
 import os
 
 # Start the video playback in the background
-os.spawnl(os.P_DETACH, 'omxplayer  -ohdmi /home/pi/mymedia.avi < /tmp/cmd')
+os.spawnl(os.P_DETACH, 'omxplayer  -ohdmi /home/pi/mymedia.mp4 < /tmp/cmd')
 
 TRIG = 20                                  #Associate pin 23 to TRIG
 ECHO = 26                                  #Associate pin 24 to ECHO
