@@ -1,11 +1,16 @@
 import RPi.GPIO as GPIO                    #Import GPIO library
 import time                                #Import time library
+import os
+
+# Start the video playback in the background
+os.spawnl(os.P_DETACH, 'omxplayer  -ohdmi /home/pi/mymedia.avi < /tmp/cmd')
 
 TRIG = 20                                  #Associate pin 23 to TRIG
 ECHO = 26                                  #Associate pin 24 to ECHO
 
 print "Setup in progress"
 
+started = None
 
 try:
     GPIO.setwarnings(False)
@@ -35,11 +40,21 @@ try:
         distance = pulse_duration * 17150        #Multiply pulse duration by 17150 to get distance
         distance = round(distance, 2)            #Round to two decimal points
 
-        if distance > 2 and distance < 400:      #Check whether the distance is within range
-            print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
-        else:
-            print "Out Of Range"                   #display out of range
+        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
+
+        if distance > 40 and distance < 100:
+            if started == None:
+                `echo . > /tmp/cmd`
+                started = True
+
+        elif distance > 100 and distance < 200:
+            if started == True:
+                `echo -n p > /tmp/cmd`
+                started = None
+
+
 except KeyboardInterrupt:
     pass
 finally:
     GPIO.cleanup()
+    `killall omxplayer`
