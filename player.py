@@ -44,14 +44,14 @@ try:
 
 #        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
 
-        if distance > 40 and distance < 80:
+        if distance < 60:
             if started == None:
-                call(["echo"," . > /tmp/cmd"])
+                subprocess.Popen(["echo",".",">","/tmp/cmd"])
                 started = True
 
         elif distance > 100 and distance < 200:
             if started == True:
-                call(["echo","-n p > /tmp/cmd"])
+                subprocess.Popen(["echo","-n","p",">","/tmp/cmd"])
                 started = None
 
 
