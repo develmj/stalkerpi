@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO                    #Import GPIO library
 import time                                #Import time library
 import os
+from subprocess import call
 
 # Start the video playback in the background
 os.spawnl(os.P_DETACH, 'omxplayer  -ohdmi /home/pi/mymedia.mp4 < /tmp/cmd')
@@ -44,12 +45,12 @@ try:
 
         if distance > 40 and distance < 100:
             if started == None:
-                `echo . > /tmp/cmd`
+                call(["echo"," . > /tmp/cmd"])
                 started = True
 
         elif distance > 100 and distance < 200:
             if started == True:
-                `echo -n p > /tmp/cmd`
+                call(["echo","-n p > /tmp/cmd"])
                 started = None
 
 
