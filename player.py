@@ -44,7 +44,7 @@ try:
 
 #        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
 
-        if distance > 40 and distance < 100:
+        if distance > 40 and distance < 80:
             if started == None:
                 call(["echo"," . > /tmp/cmd"])
                 started = True
