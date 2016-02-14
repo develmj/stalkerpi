@@ -39,7 +39,20 @@ try:
         distance = pulse_duration * 17150        #Multiply pulse duration by 17150 to get distance
         distance = round(distance, 2)            #Round to two decimal points
 
-        print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
+        #print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
+
+        if distance > 40 and distance < 80:
+            if started == None:
+                print "Player >>>>>"
+#                call(["echo"," . > /tmp/cmd"])
+                started = True
+
+        elif distance > 100 and distance < 200:
+            if started == True:
+                print "Pause || || ||"
+#                call(["echo","-n p > /tmp/cmd"])
+                started = None
+
 
 
 except KeyboardInterrupt:
