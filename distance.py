@@ -43,12 +43,14 @@ try:
 
         if distance > 40 and distance < 80:
             if started == None:
+                print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
                 print "Player >>>>>"
 #                call(["echo"," . > /tmp/cmd"])
                 started = True
 
         elif distance > 100 and distance < 200:
             if started == True:
+                print "Distance:",distance - 0.5,"cm"  #Print distance with 0.5 cm calibration
                 print "Pause || || ||"
 #                call(["echo","-n p > /tmp/cmd"])
                 started = None
