@@ -1,10 +1,11 @@
 import RPi.GPIO as GPIO                    #Import GPIO library
 import time                                #Import time library
 import os
+import subprocess
 from subprocess import call
 
 # Start the video playback in the background
-os.spawnl(os.P_DETACH, 'omxplayer  -ohdmi /home/pi/mymedia.mp4 < /tmp/cmd')
+subprocess.Popen(["omxplayer","-ohdmi /home/pi/mymedia.mp4 < /tmp/cmd"])
 
 TRIG = 20                                  #Associate pin 23 to TRIG
 ECHO = 26                                  #Associate pin 24 to ECHO
