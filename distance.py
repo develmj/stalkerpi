@@ -5,7 +5,7 @@ import subprocess
 from subprocess import call
 
 # Start the video playback in the background
-subprocess.Popen(["omxplayer","-o hdmi /home/pi/mymedia.mp4 < /tmp/cmd"])
+subprocess.Popen(["omxplayer", "/media/pi/44C0-AEBF/Casto.S01E01.mp4", "< /tmp/cmd"])
 
 TRIG = 20                                  #Associate pin 23 to TRIG
 ECHO = 26                                  #Associate pin 24 to ECHO
